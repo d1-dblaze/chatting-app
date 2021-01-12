@@ -1,0 +1,32 @@
+type Query {
+    getChat (sendFrom:String, receiveFrom:String, id: ID): Chat
+}
+
+type Mutation {
+    sendMessage (sendFrom: String, receiveFrom:String, media: String, text: String): Chat
+}
+
+type Chat {
+    id:     iD 
+    sendFrom: User
+    receiveFrom:  User
+    timeStamp:    DateTime    
+    media:     String
+    text:      String
+}
+scalar DateTime {
+
+}
+
+type User {
+    id:     String
+    username: String
+    phone:     String
+    status:     STATUS
+    Bio:        String
+}
+
+enum Status {
+    Available
+    Busy
+}
